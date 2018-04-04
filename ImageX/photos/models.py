@@ -34,7 +34,7 @@ class Picture(models.Model):
     file = models.FileField()
     uploader_name = models.CharField(max_length=100)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    tag = models.ManyToManyField(Tag)
     
     def get_absolute_url(self):
         return reverse('photos:detail', kwargs={'pk': self.pk})

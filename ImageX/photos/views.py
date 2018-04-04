@@ -43,8 +43,9 @@ class DetailView(generic.DetailView):
 
 class PictureCreate(CreateView):
     model = Picture
-    fields = ['title', 'description', 'category', 'tag', 'file', 'uploader_name']
-    #also create/add to a Tag
+    fields = ['title', 'description', 'category', 'file', 'uploader_name']
+    #Create a Form for Tag
+    #Add-to/Create Tags
     def form_valid(self, form):
         my_picture_uploader = form.instance.uploader_name
         pictures = Picture.objects.all()
